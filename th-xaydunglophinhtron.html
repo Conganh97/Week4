@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Circle {
+        radius
+        color
+        constructor(radius,color) {
+            this.radius=radius
+            this.color=color
+        }
+        getradius(){
+            return this.radius
+        }
+        getarea(){
+            return Math.PI*this.radius*this.radius
+        }
+
+    }
+    let circle =new Circle(2,'red')
+    let radius = circle.getradius()
+    let area = circle.getarea()
+    document.write(`Bán kính hình tròn là: ${radius} Diện tích hình tròn là ${area}`)
+
+
+</script>
+</body>
+</html>
