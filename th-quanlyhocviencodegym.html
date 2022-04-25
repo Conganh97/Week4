@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #bang
+    tr:nth-child(even){background: bisque}
+    button{
+        background: burlywood;
+    }
+    img{
+        width: 300px;
+        height: 300px;
+    }
+    h1 {
+        color: orange;
+    }
+</style>
+<body>
+<h2 style="color: orange "> Manager Codegym's Students</h2>
+<br>
+<h4>Student information</h4>
+<table>
+    <tr>
+        <td>Họ và tên:</td> <td><input id="name" placeholder="Name" type="text"></td>
+    </tr>
+    <tr>
+        <td>Tuổi:</td> <td><input id="age" placeholder="Age" type="number"></td>
+    </tr>
+    <tr>
+        <td>Giới tính: </td> <td><input id="sex" placeholder="Sex" type="text"></td>
+    </tr>
+    <tr>
+        <td>Điện thoại: </td> <td><input id="phone" placeholder="Phone" type="number"></td>
+    </tr>
+    <tr>
+        <td>Email: </td> <td><input id="mail" placeholder="Email" type="text"></td>
+    </tr>
+    <tr> <td colspan="2" align="center"><button id="add" type="button" onclick="add()">Add</button>
+        <button id="edit" type="button" onclick="saveedit()">Save Edit </button></td></tr>
+</table>
+<table width="1000">
+    <tr>
+        <td align="left"> <h4> Students list </h4></td> <td align="right"> <h5 id="soluong">Số lượng học viên </h5> </td>
+    </tr>
+</table>
+<p id="display"></p>
+</body>
+<script>
+class Student{
+    name
+    age
+    sex
+    phone
+    mail
+    constructor(name,age,sex,phone,mail) {
+        this.name = name
+        this.age = age
+        this.sex = sex
+        this.phone = phone
+        this.mail = mail
+    }
+}
+let students=[new Student('Công Anh','25','Nam','0394935883','anhbc.afsystem@gmail.com')]
+
+function load() {
+    let display;
+    display = "<table id='bang' border='1px' width='1000px'> " +
+        "<tr>" +
+        "<td>Stt</td><td>Họ và tên</td><td>Tuổi</td><td>Giới tính</td><td>Số điện thoại</td><td>Email</td></tr>";
+    for (let i = 0; i < students.length; i++) {
+        display += `<tr><td>${i+1}</td>
+             <td><h5>${students[i].name}</h5></td>
+             <td><h5>${students[i].age}</h5></td>
+             <td><h5>${students[i].sex}</h5></td>
+             <td><h5>${students[i].phone}</h5></td>
+             <td><h5>${students[i].mail}</h5></td>
+             <td><button id='Edit' onclick="Edit(${[i]})">Edit</button></td>
+             <td><button id= 'Delete' onclick="delete1(${i})">Delete</button></td></tr>`
+    }
+    document.getElementById('display').innerHTML = display + '</table>'
+     num()
+}
+function add(){
+    let name=document.getElementById('name').value
+    let age=document.getElementById('age').value
+    let sex = document.getElementById('sex').value
+    let phone = document.getElementById('phone').value
+    let mail = document.getElementById('mail').value
+    students.push(new Student(name,age,sex,phone,mail))
+    load()
+}
+function delete1(index) {
+    students.splice(index, 1)
+    load()
+}
+function num(){
+    let b=document.getElementById('soluong').innerText= students.length+ ' Students'
+}
+let indexEdit = -1;
+function Edit(index) {
+    document.getElementById('name').value = students[index].name
+    document.getElementById('age').value = students[index].age
+    document.getElementById('sex').value = students[index].sex
+    document.getElementById('phone').value = students[index].phone
+    document.getElementById('mail').value = students[index].mail
+    indexEdit = index;
+}
+function saveedit() {
+    let name=document.getElementById('name').value
+    let age=document.getElementById('age').value
+    let sex = document.getElementById('sex').value
+    let phone = document.getElementById('phone').value
+    let mail = document.getElementById('mail').value
+    students[indexEdit]= new Student(name,age,sex,phone,mail)
+    load();
+    indexEdit = -1;
+}
+load()
+</script>
+</html>
