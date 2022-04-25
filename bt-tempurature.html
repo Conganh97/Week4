@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Tempurature{
+        c
+        constructor(c) {
+            this.c = c
+        }
+        getkenvin(){
+            return this.c + 273.15
+        }
+        getfahrenheit(){
+            return this.c*1.8 + 32
+        }
+    }
+    let tempurature = new Tempurature(25)
+    let k=tempurature.getkenvin()
+    let f=tempurature.getfahrenheit()
+    document.write(`${k} độ Kenvin, ${f} độ Fahrenheit`)
+
+
+</script>
+</body>
+</html>

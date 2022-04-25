@@ -24,7 +24,7 @@
 <h4>Student information</h4>
 <table>
     <tr>
-        <td>Họ và tên:</td> <td><input id="name" placeholder="Name" type="text"></td>
+        <td>Họ và tên:</td><td> <input id="name" placeholder="Name" type="text"> </td>
     </tr>
     <tr>
         <td>Tuổi:</td> <td><input id="age" placeholder="Age" type="number"></td>
@@ -68,8 +68,9 @@ let students=[new Student('Công Anh','25','Nam','0394935883','anhbc.afsystem@gm
 function load() {
     let display;
     display = "<table id='bang' border='1px' width='1000px'> " +
-        "<tr>" +
-        "<td>Stt</td><td>Họ và tên</td><td>Tuổi</td><td>Giới tính</td><td>Số điện thoại</td><td>Email</td></tr>";
+        "<tr align='center'>" +
+        "<td>Stt</td><td>Họ và tên</td><td>Tuổi</td><td>Giới tính</td><td>Số điện thoại</td>" +
+        "<td>Email</td><td colspan='2' align='center'>Chỉnh sửa</td></tr>";
     for (let i = 0; i < students.length; i++) {
         display += `<tr><td>${i+1}</td>
              <td><h5>${students[i].name}</h5></td>
