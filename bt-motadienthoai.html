@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Phone{
+        inbox
+        sent
+        status
+        message
+        id
+        bettery
+        constructor(bettery,status,id) {
+            this.bettery = bettery
+            this.inbox = []
+            this.draf = []
+            this.sent = []
+            this.status = status
+            this.message = ''
+            this.id = id
+        }
+        turnOn (){
+            this.usephone()
+            return this.status = true
+
+         }
+        turnOf(){
+            this.status = false }
+        charing(){
+             this.bettery++
+        }
+        usephone(){
+            this.bettery--
+        }
+        checkOn(){
+            if (this.status){
+                console.log('Điện thoại đang bật')
+            } else console.log('Điện thoại đang tắt')
+        }
+        checkinbox(){
+            if (this.status && this.bettery >0){
+                return this.inbox}
+            else console.log('điện thoại đang tắt')
+        }
+        checksent(){
+            if (this.status && this.bettery >0){
+                return this.sent}
+            else console.log('điện thoại đang tắt')}
+        typeMessage(message){
+            if (this.status && this.bettery >0){
+            this.message=message
+            this.draf.push(message)
+            this.usephone()}
+            else console.log('điện thoại đang tắt')
+        }
+
+        sendMessage(message,phone){
+            if (this.status && this.bettery >0){
+            phone.inbox.push(message)
+                this.sent.push(message)
+            this.usephone()}
+            else console.log('điện thoại đang tắt')
+        }
+
+    }
+    let iphone = new Phone(100,false,1)
+    let nokia = new Phone(100,false,2)
+    iphone.turnOn()
+    iphone.typeMessage('alo')
+    console.log(iphone.draf)
+    iphone.sendMessage(iphone.draf[0],nokia)
+    console.log(iphone.sent)
+</script>
+</body>
+</html>
