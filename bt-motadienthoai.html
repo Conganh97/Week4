@@ -13,6 +13,7 @@
         message
         id
         bettery
+        draf
         constructor(bettery,status,id) {
             this.bettery = bettery
             this.inbox = []
@@ -69,10 +70,14 @@
     let iphone = new Phone(100,false,1)
     let nokia = new Phone(100,false,2)
     iphone.turnOn()
+    nokia.turnOn()
     iphone.typeMessage('alo')
     console.log(iphone.draf)
     iphone.sendMessage(iphone.draf[0],nokia)
-    console.log(iphone.sent)
+    console.log(iphone.checksent())
+    console.log(nokia.checkinbox())
+    console.log(nokia.bettery)
+    iphone.checkOn()
 </script>
 </body>
 </html>
