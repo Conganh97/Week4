@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Bettery{
+        energy
+        constructor(energy) {
+            this.energy = energy
+        }
+        downenergy(){
+            this.energy--
+        }
+    }
+    class Flashlamp{
+        status
+        bettery
+        constructor(status,bettery) {
+            this.status = status
+            this.bettery = bettery
+        }
+        turnOn(){
+            if (bettery.energy>0)
+           return this.status = true
+        }
+        turnOf(){
+            return this.status = false
+        }
+        light(){
+           if (this.turnOn()){
+               if (this.bettery.energy===0) {this.turnOf()
+                   console.log('k đủ pin')}
+               else {
+                   console.log('bật đèn')
+                   this.bettery.downenergy()
+               }
+           }
+        }
+    }
+    let bettery=new Bettery(2);
+    let lamp= new Flashlamp(false,bettery);
+    lamp.turnOn()
+    lamp.light()
+    console.log(lamp.bettery.energy)
+    lamp.light()
+    console.log(lamp.bettery.energy)
+    lamp.light()
+    console.log(lamp.bettery.energy)
+    lamp.light()
+
+
+
+</script>
+</body>
+</html>
