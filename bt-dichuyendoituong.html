@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="game"></div>
+<script>
+ class Hero {
+     image
+     size
+     left
+     top
+     speed
+     constructor(image,top,left,size,speed) {
+         this.image = image
+         this.top = top
+         this.left = left
+         this.size = size
+         this.speed = speed
+     }
+     getHero () {
+         return '<img width="' + this.size + '"' +
+             ' height="' + this.size + '"' +
+             ' src="' + this.image + '"' +
+             ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
+     }
+     moveRight(){
+         this.left += this.speed
+     }
+     moveLeft(){
+         this.left -= this.speed
+     }
+     moveTop(){
+         this.top -= this.speed
+     }
+     moveDown(){
+         this.top += this.speed
+     }
+
+ }
+ let speed1=parseInt(prompt('Nhập speed:'))
+ let hero = new Hero('Fouth_Armor_X.webp', 10, 10, 200,speed1);
+ function start(){
+if (hero.left < window.innerWidth && hero.top == 10 ) { hero.moveRight()}
+if (hero.left == 1210) {hero.moveDown()}
+if (hero.top==610) {hero.moveLeft()}
+if (hero.left == 10) {hero.moveTop()}
+
+     document.getElementById('game').innerHTML = hero.getHero()
+     setTimeout(start, 50)
+ }
+  start()
+</script>
+</body>
+</html>
